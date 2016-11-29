@@ -55,12 +55,12 @@ class LocalColonoscopyPipelineTest {
 //        AnalysisEngine pipeline = LocalColonoscopyPipeline.buildExamExtentPipeline()
 
         AnalysisEngine pipeline = LocalColonoscopyPipeline.buildPolypHistologyPipeline()
-//        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes'
-//        String xmiOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/xmi'
-//        String bratOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/brat'
-        String inputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/input'
-        String xmiOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/xmi'
-        String bratOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/brat'
+        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes'
+        String xmiOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/xmi'
+        String bratOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/brat'
+//        String inputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/input'
+//        String xmiOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/xmi'
+//        String bratOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/brat'
         LocalColonoscopyPipelineTest.testPipeline(pipeline, inputDir, xmiOutputDir, bratOutputDir)
     }
 }

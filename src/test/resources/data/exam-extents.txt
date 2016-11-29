@@ -1,0 +1,36 @@
+===================================
+Exam to the proximal sigmoid colon. 
+===================================
+PROCEDURE: to sigmoid colon
+===================================
+Colonoscopy to the cecum
+===================================
+Depth of insertion: descending colon
+===================================
+Advanced to:
+
+[X]	Cecum
+===================================
+Cecum reached.
+===================================
+Colonoscopy performed to cecum.
+===================================
+Extent of exam: descending colon.
+===================================
+The cecum was easily identified by visualization of the ileocecal valve and appendiceal orifice.
+===================================
+The ICV and the appendiceal orifice were visualized.
+===================================
+The appendiceal orifice was seen.
+===================================
+Confirmed by the ileocecal valve and the appendiceal orifice.
+===================================
+Cecum identified by appendiceal orifice.
+===================================
+Proximal ascending colon was identified by visual landmarks.
+===================================
+Cecum was verified by visualization of the appendiceal orifice and
+the IC valve
+===================================
+Identified by visualization of the orifice of the appendix.
+===================================

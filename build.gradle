@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group 'edu.northwestern.chip'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+//    compile fileTree(dir: 'lib', include: '*.jar')
+    compile 'clinicalnlp:library-types:1.0-SNAPSHOT'
+    compile 'clinicalnlp:component-sentence-detector:1.0-SNAPSHOT'
+    compile 'clinicalnlp:component-groovy-dsl:1.0-SNAPSHOT'
+    compile 'clinicalnlp:component-tokenizer:1.0-SNAPSHOT'
+
+    testCompile 'clinicalnlp:library-test:1.0-SNAPSHOT'
+    testCompile 'gov.va.vinci:leo-aucompare:2016.07.1'
+    testCompile 'org.apache.uima:uimaj-tools:2.9.0'
+    testCompile 'junit:junit:4.12'
+}
+
+task copyRuntimeDependencies(type: Copy) {
+    dependsOn build
+    from configurations.runtime
+    from jar
+    into "${project.projectDir}/build/libs"
+}

@@ -27,5 +27,5 @@ task copyRuntimeDependencies(type: Copy) {
     dependsOn build
     from configurations.runtime
     from jar
-    into "${project.projectDir}/build/libs"
+    into "${project.projectDir}/build/deps"
 }

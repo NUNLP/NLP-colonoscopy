@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-//    compile fileTree(dir: 'lib', include: '*.jar')
+    compile fileTree(dir: 'lib', include: '*.jar')
     compile 'clinicalnlp:library-types:1.0-SNAPSHOT'
     compile 'clinicalnlp:component-sentence-detector:1.0-SNAPSHOT'
     compile 'clinicalnlp:component-groovy-dsl:1.0-SNAPSHOT'

@@ -13,5 +13,5 @@ types.addType('edu.northwestern.chip.types.AnatomicalSiteVisualized', '', NamedE
 types.addType('edu.northwestern.chip.types.LeftWindow', '', 'uima.tcas.Annotation')
 types.addType('edu.northwestern.chip.types.RightWindow', '', 'uima.tcas.Annotation')
 
-types.toXML('/Users/willthompson/Code/northwestern/NU-colonoscopy/src/main/resources/descriptors/ColonPolypTypeSystem.xml')
-types.jCasGen('/Users/willthompson/Code/northwestern/NU-colonoscopy/src/main/java/', 'build/classes')
+types.toXML('src/main/resources/descriptors/ColonoscopyTypeSystem.xml')
+types.jCasGen('src/main/java/', 'build/classes')

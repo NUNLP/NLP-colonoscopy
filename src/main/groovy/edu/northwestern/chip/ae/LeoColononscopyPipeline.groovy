@@ -8,9 +8,9 @@ import gov.va.vinci.leo.descriptors.LeoTypeSystemDescription
 import groovy.util.logging.Log4j
 
 @Log4j
-class LeoColonPolypsApp {
+class LeoColononscopyPipeline {
     static LeoAEDescriptor buildPipeline() {
-        LeoTypeSystemDescription types = new LeoTypeSystemDescription('descriptors.ColonPolypTypeSystem', true)
+        LeoTypeSystemDescription types = new LeoTypeSystemDescription('descriptors.ColonoscopyTypeSystem', true)
         LeoAEDescriptor pipeline = new LeoAEDescriptor()
         pipeline.addDelegate(
                 new LeoDSLAnnotator()

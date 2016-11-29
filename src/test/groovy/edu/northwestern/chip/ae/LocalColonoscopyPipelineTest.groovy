@@ -15,8 +15,8 @@ import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngine
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline
 
 @Log4j
-class LocalColonPolypsAppTest {
-    public static void testPipeline(AnalysisEngine pipeline, String inputDir,
+class LocalColonoscopyPipelineTest {
+    static void testPipeline(AnalysisEngine pipeline, String inputDir,
                                     String xmiOutputDir, String bratOutputDir) {
 
         // -------------------------------------------------------------------
@@ -45,19 +45,22 @@ class LocalColonPolypsAppTest {
         runPipeline(reader, pipeline, consumer1, consumer2)
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Class.forName('clinicalnlp.dsl.UIMA_DSL')
         BasicConfigurator.configure()
         log.level = Level.INFO
 
 //        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes'
 //        String outputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes/xmi'
-//        AnalysisEngine pipeline = LocalColonPolypsApp.buildExamExtentPipeline()
+//        AnalysisEngine pipeline = LocalColonoscopyPipeline.buildExamExtentPipeline()
 
-        AnalysisEngine pipeline = LocalColonPolypsApp.buildPolypHistologyPipeline()
-        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes'
-        String xmiOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/xmi'
-        String bratOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/brat'
-        LocalColonPolypsAppTest.testPipeline(pipeline, inputDir, xmiOutputDir, bratOutputDir)
+        AnalysisEngine pipeline = LocalColonoscopyPipeline.buildPolypHistologyPipeline()
+//        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes'
+//        String xmiOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/xmi'
+//        String bratOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/brat'
+        String inputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/input'
+        String xmiOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/xmi'
+        String bratOutputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/brat'
+        LocalColonoscopyPipelineTest.testPipeline(pipeline, inputDir, xmiOutputDir, bratOutputDir)
     }
 }

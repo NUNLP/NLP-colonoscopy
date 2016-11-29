@@ -14,7 +14,7 @@ import org.apache.log4j.Level
 import org.apache.uima.aae.client.UimaAsBaseCallbackListener
 
 @Log4j
-class LeoColonPolypsAppTest {
+class LeoColonoscopyPipelineTest {
     Process process = null;
 
     void startService() {
@@ -101,23 +101,21 @@ class LeoColonPolypsAppTest {
         client.run(reader)
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         BasicConfigurator.configure()
         log.setLevel(Level.INFO)
 
-        Class.forName('gov.va.queri.dsl.UIMA_DSL')
-        LeoAEDescriptor pipeline = LeoColonPolypsApp.buildPipeline()
-        LeoColonPolypsAppTest testApp
+        Class.forName('clinicalnlp.dsl.UIMA_DSL')
+        LeoAEDescriptor pipeline = LeoColononscopyPipeline.buildPipeline()
+        LeoColonoscopyPipelineTest testApp
         try {
-            testApp = new LeoColonPolypsAppTest()
+            testApp = new LeoColonoscopyPipelineTest()
             ////testPipeline.startService()
 
-//            String inputDir = '//vhacdwfpcfs02/Projects3/ORD_Gupta_201311044D/NLP/RefSt_FromChartReview_20160707_ColonoscopyOnly/xmi'
-//            String outputDir = '//vhacdwfpcfs02/Projects3/ORD_Gupta_201311044D/NLP/TestData/output/WKT'
-//            testApp.testApplication1(pipeline, inputDir, outputDir)
-
-            String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes'
-            String outputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes/xmi-leo'
+//            String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes'
+//            String outputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes/xmi-leo'
+            String inputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/input'
+            String outputDir = 'C:/Users/wkt406/Code/northwestern/data/path-notes/xmi'
             testApp.testApplication2(pipeline, inputDir, outputDir)
         }
         catch (Exception e) {

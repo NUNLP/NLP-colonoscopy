@@ -17,7 +17,7 @@ import org.apache.uima.resource.ExternalResourceDescription
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription
 
 @Log4j
-class LocalColonPolypsApp {
+class LocalColonoscopyPipeline {
 
     static AnalysisEngine buildExamExtentPipeline() {
         ExternalResourceDescription tokenResDesc = ExternalResourceFactory.createExternalResourceDescription(
@@ -41,7 +41,7 @@ class LocalColonPolypsApp {
         }
 
         AnalysisEngineDescription descr = builder.createAggregateDescription()
-        File descriptorLocation = new File('/Users/willthompson/Code/utah-va/queri-leo-components/application-colon-polyps/src/main/resources/descriptors/LocalExamExtentPipeline.xml')
+        File descriptorLocation = new File('src/main/resources/descriptors/LocalExamExtentPipeline.xml')
         descr.toXML(new PrintWriter(descriptorLocation))
 
         AnalysisEngine engine = builder.createAggregate()
@@ -81,7 +81,7 @@ class LocalColonPolypsApp {
         }
 
         AnalysisEngineDescription descr = builder.createAggregateDescription()
-        File descriptorLocation = new File('/Users/willthompson/Code/northwestern/NU-colonoscopy/src/main/resources/descriptors/LocalPolypHistologyPipeline.xml')
+        File descriptorLocation = new File('src/main/resources/descriptors/LocalPolypHistologyPipeline.xml')
         descr.toXML(new PrintWriter(descriptorLocation))
 
         AnalysisEngine engine = builder.createAggregate()

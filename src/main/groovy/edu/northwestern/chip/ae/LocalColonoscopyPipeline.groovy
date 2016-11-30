@@ -4,10 +4,7 @@ import clinicalnlp.dsl.ae.LocalDSLAnnotator
 import clinicalnlp.sent.ae.LocalSentenceDetector
 import clinicalnlp.token.ae.LocalTokenAnnotator
 import clinicalnlp.types.Segment
-import clinicalnlp.types.Token
-import gov.va.vinci.leo.sentence.types.Sentence
 import groovy.util.logging.Log4j
-import opennlp.uima.util.UimaUtil
 import org.apache.uima.analysis_engine.AnalysisEngine
 import org.apache.uima.analysis_engine.AnalysisEngineDescription
 import org.apache.uima.fit.factory.AggregateBuilder
@@ -62,22 +59,27 @@ class LocalColonoscopyPipeline {
             add(createEngineDescription(LocalDSLAnnotator,
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/path-note-segmenter.groovy'))
             add(createEngineDescription(
-                LocalSentenceDetector,
-                LocalSentenceDetector.SENT_MODEL_KEY, sentResDesc))
-            add(createEngineDescription(
-                    LocalTokenAnnotator,
-                    LocalTokenAnnotator.PARAM_CONTAINER_TYPE, Sentence.canonicalName,
-                    LocalTokenAnnotator.TOKEN_MODEL_KEY, tokenResDesc))
-            add(createEngineDescription(
-                opennlp.uima.postag.POSTagger,
-                UimaUtil.MODEL_PARAMETER, posResDesc,
-                "opennlp.uima.SentenceType", Sentence.canonicalName,
-                "opennlp.uima.TokenType", Token.canonicalName,
-                "opennlp.uima.POSFeature", "pos"))
+                    LocalSentenceDetector,
+                    LocalSentenceDetector.SENT_MODEL_KEY, sentResDesc,
+                    LocalSentenceDetector.PARAM_SPLIT_PATTERN, '[\n\r]{2,}'
+            ))
+//            add(createEngineDescription(
+//                    LocalTokenAnnotator,
+//                    LocalTokenAnnotator.PARAM_CONTAINER_TYPE, Sentence.canonicalName,
+//                    LocalTokenAnnotator.TOKEN_MODEL_KEY, tokenResDesc))
+//            add(createEngineDescription(
+//                opennlp.uima.postag.POSTagger,
+//                UimaUtil.MODEL_PARAMETER, posResDesc,
+//                "opennlp.uima.SentenceType", Sentence.canonicalName,
+//                "opennlp.uima.TokenType", Token.canonicalName,
+//                "opennlp.uima.POSFeature", "pos"))
             add(createEngineDescription(LocalDSLAnnotator,
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/anatomical-site.groovy'))
             add(createEngineDescription(LocalDSLAnnotator,
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/polyp-histology.groovy'))
+//            add(createEngineDescription(LocalDSLAnnotator,
+//                    LocalDSLAnnotator.PARAM_BINDING_SCRIPT_FILE, 'histology/histology-patterns.groovy',
+//                    LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/histology-matchers.groovy'))
         }
 
         AnalysisEngineDescription descr = builder.createAggregateDescription()

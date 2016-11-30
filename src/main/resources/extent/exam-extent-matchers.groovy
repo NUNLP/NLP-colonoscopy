@@ -1,6 +1,5 @@
-package extent
-
-import gov.va.queri.types.*
+import clinicalnlp.types.Token
+import edu.northwestern.chip.types.*
 import gov.va.vinci.leo.AnnotationLibrarian
 
 // ---------------------------------------------------------------------------------------------------------------------

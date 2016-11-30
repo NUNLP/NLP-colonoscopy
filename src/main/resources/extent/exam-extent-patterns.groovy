@@ -1,8 +1,6 @@
-package extent
-
-import gov.va.queri.dsl.AnnotationPattern
-import gov.va.queri.types.AnatomicalSite
-import gov.va.queri.types.Token
+import clinicalnlp.dsl.AnnotationPattern
+import edu.northwestern.chip.types.AnatomicalSite
+import clinicalnlp.types.Token
 
 // ---------------------------------------------------------------------------------------------------------------------
 // PATTERN 1: explicit mention of exam extent

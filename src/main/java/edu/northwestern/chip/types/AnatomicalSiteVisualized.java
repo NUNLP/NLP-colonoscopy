@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Mon Nov 28 12:19:49 CST 2016 */
+/* First created by JCasGen Tue Nov 29 22:48:30 CST 2016 */
 package edu.northwestern.chip.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,8 +11,8 @@ import clinicalnlp.types.NamedEntityMention;
 
 
 /** 
- * Updated by JCasGen Mon Nov 28 12:19:49 CST 2016
- * XML source: /var/folders/k0/jcxw1d05549c48zgccrbj_q40000gp/T/leoTypeDescription_5afd9760-800b-448a-b509-90cb59dd01c25851919608446240726.xml
+ * Updated by JCasGen Tue Nov 29 22:48:30 CST 2016
+ * XML source: /var/folders/k0/jcxw1d05549c48zgccrbj_q40000gp/T/leoTypeDescription_d30af467-93e0-418d-8f9f-65b866d376ba1787412053323460902.xml
  * @generated */
 public class AnatomicalSiteVisualized extends NamedEntityMention {
   /** @generated

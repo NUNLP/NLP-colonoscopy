@@ -316,11 +316,6 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>edu.northwestern.chip.types.HistologyFinding</name>
-            <description/>
-            <supertypeName>clinicalnlp.types.NamedEntityMention</supertypeName>
-        </typeDescription>
-        <typeDescription>
             <name>edu.northwestern.chip.types.AnatomicalSite</name>
             <description/>
             <supertypeName>clinicalnlp.types.NamedEntityMention</supertypeName>
@@ -344,6 +339,18 @@
             <name>edu.northwestern.chip.types.RightWindow</name>
             <description/>
             <supertypeName>uima.tcas.Annotation</supertypeName>
+        </typeDescription>
+        <typeDescription>
+            <name>edu.northwestern.chip.types.HistologyFinding</name>
+            <description/>
+            <supertypeName>clinicalnlp.types.NamedEntityMention</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>site</name>
+                    <description/>
+                    <rangeTypeName>edu.northwestern.chip.types.AnatomicalSite</rangeTypeName>
+                </featureDescription>
+            </features>
         </typeDescription>
     </types>
 </typeSystemDescription>

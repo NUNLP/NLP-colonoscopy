@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Mon Nov 28 12:19:49 CST 2016 */
+/* First created by JCasGen Tue Nov 29 22:48:30 CST 2016 */
 package edu.northwestern.chip.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,8 +11,8 @@ import clinicalnlp.types.NamedEntityMention;
 
 
 /** 
- * Updated by JCasGen Mon Nov 28 12:19:49 CST 2016
- * XML source: /var/folders/k0/jcxw1d05549c48zgccrbj_q40000gp/T/leoTypeDescription_5afd9760-800b-448a-b509-90cb59dd01c25851919608446240726.xml
+ * Updated by JCasGen Tue Nov 29 22:48:30 CST 2016
+ * XML source: /var/folders/k0/jcxw1d05549c48zgccrbj_q40000gp/T/leoTypeDescription_d30af467-93e0-418d-8f9f-65b866d376ba1787412053323460902.xml
  * @generated */
 public class HistologyFinding extends NamedEntityMention {
   /** @generated
@@ -74,6 +74,28 @@ public class HistologyFinding extends NamedEntityMention {
    */
   private void readObject() {/*default - does nothing empty block */}
      
-}
+ 
+    
+  //*--------------*
+  //* Feature: site
+
+  /** getter for site - gets 
+   * @generated
+   * @return value of the feature 
+   */
+  public AnatomicalSite getSite() {
+    if (HistologyFinding_Type.featOkTst && ((HistologyFinding_Type)jcasType).casFeat_site == null)
+      jcasType.jcas.throwFeatMissing("site", "edu.northwestern.chip.types.HistologyFinding");
+    return (AnatomicalSite)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((HistologyFinding_Type)jcasType).casFeatCode_site)));}
+    
+  /** setter for site - sets  
+   * @generated
+   * @param v value to set into the feature 
+   */
+  public void setSite(AnatomicalSite v) {
+    if (HistologyFinding_Type.featOkTst && ((HistologyFinding_Type)jcasType).casFeat_site == null)
+      jcasType.jcas.throwFeatMissing("site", "edu.northwestern.chip.types.HistologyFinding");
+    jcasType.ll_cas.ll_setRefValue(addr, ((HistologyFinding_Type)jcasType).casFeatCode_site, jcasType.ll_cas.ll_getFSRef(v));}    
+  }
 
     

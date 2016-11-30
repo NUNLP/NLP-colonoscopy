@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Mon Nov 28 12:19:49 CST 2016 */
+/* First created by JCasGen Tue Nov 29 22:48:30 CST 2016 */
 package edu.northwestern.chip.types;
 
 import org.apache.uima.jcas.JCas;
@@ -12,7 +12,7 @@ import org.apache.uima.cas.Type;
 import clinicalnlp.types.NamedEntityMention_Type;
 
 /** 
- * Updated by JCasGen Mon Nov 28 12:19:49 CST 2016
+ * Updated by JCasGen Tue Nov 29 22:48:30 CST 2016
  * @generated */
 public class AnatomicalSiteReached_Type extends NamedEntityMention_Type {
   /** @generated 

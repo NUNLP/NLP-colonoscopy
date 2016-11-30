@@ -77,9 +77,8 @@ class LocalColonoscopyPipeline {
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/anatomical-site.groovy'))
             add(createEngineDescription(LocalDSLAnnotator,
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/polyp-histology.groovy'))
-//            add(createEngineDescription(LocalDSLAnnotator,
-//                    LocalDSLAnnotator.PARAM_BINDING_SCRIPT_FILE, 'histology/histology-patterns.groovy',
-//                    LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/histology-matchers.groovy'))
+            add(createEngineDescription(LocalDSLAnnotator,
+                    LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/histology-site-relations.groovy'))
         }
 
         AnalysisEngineDescription descr = builder.createAggregateDescription()

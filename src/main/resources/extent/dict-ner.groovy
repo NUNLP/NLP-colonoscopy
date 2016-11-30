@@ -1,9 +1,7 @@
-import gov.va.queri.types.AnatomicalSite
-import gov.va.queri.types.DictMatch
-import org.apache.uima.jcas.JCas
+package extent
 
-// get the JCas instance
-JCas jcas = (JCas) getProperty('jcas')
+import clinicalnlp.types.DictMatch
+import edu.northwestern.chip.types.AnatomicalSite
 
 // only use matches that aren't embedded in other matches
 jcas.removeCovered(

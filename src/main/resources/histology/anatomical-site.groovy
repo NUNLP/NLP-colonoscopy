@@ -8,7 +8,7 @@ import edu.northwestern.chip.types.AnatomicalSite
 //---------------------------------------------------------------------------------------------------------------------
 UIMA_DSL.createMentions(
     patterns:[
-        (~/(?i)\b(colon)\b/):[group:0] << Concept.COLON.map,
+        //(~/(?i)\b(colon)\b/):[group:0] << Concept.COLON.map,
         (~/(?is)\b((left|distal)\s+colon)\b/):[group:0] << Concept.LEFT_COLON.map,
         (~/(?is)\b(colon,\s+left)\b/):[group:0] << Concept.LEFT_COLON.map,
         (~/(?is)\b((right|proximal)\s+colon)\b/):[group:0] << Concept.RIGHT_COLON.map,
@@ -22,11 +22,11 @@ UIMA_DSL.createMentions(
         (~/(?is)\b(hepatic(\s+flexures?)?)\b/):[group:0] << Concept.HEPATIC_FLEXURE.map,
         (~/(?is)\b((proximal\s+|distal\s+)?ascending(\s+colon)?)\b/):[group:0] << Concept.ASCENDING_COLON.map,
         (~/(?is)\b((terminal\s+)?ileum)\b/):[group:0] << Concept.ILEUM.map,
-        (~/(?is)\b((ileo-?ca?ecal)(\s+valve)?)\b/):[group:0] << Concept.ILEOCECAL_VALVE.map,
-        (~/(?is)\b(ICV|IC\s+valve)\b/):[group:0] << Concept.ILEOCECAL_VALVE.map,
-        (~/(?is)\b(ca?ecum)|(cecal)\b/):[group:0] << Concept.CECUM.map,
-        (~/(?is)\b((ori?fi?ce\s+of\s+the\s+)?app?endix|app?endic(e|i)al(\s+ori?fi?ce)?)\b/):[group:0] << Concept.APPENDIX.map,
-        (~/(?is)\b(anastomosis)\b/):[group:0] << Concept.ANASTOMOSIS.map
+        //(~/(?is)\b((ileo-?ca?ecal)(\s+valve)?)\b/):[group:0] << Concept.ILEOCECAL_VALVE.map,
+        //(~/(?is)\b(ICV|IC\s+valve)\b/):[group:0] << Concept.ILEOCECAL_VALVE.map,
+        (~/(?is)\b(ca?ecum|cecal)\b/):[group:0] << Concept.CECUM.map
+        //(~/(?is)\b((ori?fi?ce\s+of\s+the\s+)?app?endix|app?endic(e|i)al(\s+ori?fi?ce)?)\b/):[group:0] << Concept.APPENDIX.map,
+        //(~/(?is)\b(anastomosis)\b/):[group:0] << Concept.ANASTOMOSIS.map
     ],
     jcas:jcas,
     searchSet:jcas.select(type:Segment),

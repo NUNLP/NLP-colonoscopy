@@ -1,4 +1,3 @@
-import clinicalnlp.dsl.UIMA_DSL
 import clinicalnlp.types.Segment
 import edu.northwestern.chip.domain.Concept
 import edu.northwestern.chip.types.AnatomicalSite

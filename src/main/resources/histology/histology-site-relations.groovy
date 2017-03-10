@@ -1,7 +1,7 @@
 import edu.northwestern.chip.types.AnatomicalSite
 import edu.northwestern.chip.types.HistologyFinding
 import gov.va.vinci.leo.sentence.types.Sentence
-import static clinicalnlp.dsl.UIMA_DSL.*
+import static clinicalnlp.dsl.DSL.*
 
 jcas.select(type:Sentence).each { Sentence sent ->
     Collection<AnatomicalSite> sites = jcas.select(type:AnatomicalSite, filter:coveredBy(sent))

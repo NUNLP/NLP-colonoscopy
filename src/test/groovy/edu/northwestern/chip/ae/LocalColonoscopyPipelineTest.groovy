@@ -6,7 +6,6 @@ import clinicalnlp.reader.FileSystemCollectionReader
 import edu.northwestern.chip.types.AnatomicalSite
 import groovy.util.logging.Log4j
 import org.apache.log4j.BasicConfigurator
-import org.apache.log4j.Level
 import org.apache.uima.analysis_engine.AnalysisEngine
 import org.apache.uima.collection.CollectionReader
 import org.apache.uima.fit.factory.CollectionReaderFactory
@@ -46,9 +45,8 @@ class LocalColonoscopyPipelineTest {
     }
 
     static void main(String[] args) {
-        Class.forName('clinicalnlp.dsl.UIMA_DSL')
+        Class.forName('clinicalnlp.dsl.DSL')
         BasicConfigurator.configure()
-        log.level = Level.INFO
 
 //        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes'
 //        String outputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes/xmi'

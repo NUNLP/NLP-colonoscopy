@@ -14,13 +14,13 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'lib', include: '*.jar')
-    compile 'clinicalnlp:library-types:1.0'
-    compile 'clinicalnlp:component-sentence-detector:1.0'
-    compile 'clinicalnlp:component-groovy-dsl:1.0'
-    compile 'clinicalnlp:component-tokenizer:1.0'
+    ////compile fileTree(dir: 'lib', include: '*.jar')
+    compile 'clinicalnlp:library-types:1.1'
+    compile 'clinicalnlp:component-sentence-detector:1.1'
+    compile 'clinicalnlp:component-groovy-dsl:1.1'
+    compile 'clinicalnlp:component-tokenizer:1.1'
 
-    testCompile 'clinicalnlp:library-test:1.0'
+    testCompile 'clinicalnlp:library-test:1.1'
     testCompile 'gov.va.vinci:leo-aucompare:2016.07.1'
     testCompile 'org.apache.uima:uimaj-tools:2.9.0'
     testCompile 'junit:junit:4.12'

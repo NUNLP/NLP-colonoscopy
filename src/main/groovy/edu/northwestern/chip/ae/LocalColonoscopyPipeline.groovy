@@ -16,36 +16,6 @@ import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDesc
 @Log4j
 class LocalColonoscopyPipeline {
 
-    static AnalysisEngine buildExamExtentPipeline() {
-        ExternalResourceDescription tokenResDesc = ExternalResourceFactory.createExternalResourceDescription(
-            opennlp.uima.tokenize.TokenizerModelResourceImpl.class, "file:models/en-token.bin")
-        ExternalResourceDescription posResDesc = ExternalResourceFactory.createExternalResourceDescription(
-            opennlp.uima.postag.POSModelResourceImpl, "file:models/mayo-pos.zip")
-
-        AggregateBuilder builder = new AggregateBuilder()
-        builder.with {
-            add(createEngineDescription(LocalDSLAnnotator,
-                LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'extent/proc-note-segmenter.groovy'))
-            add(createEngineDescription(
-                LocalTokenAnnotator,
-                LocalTokenAnnotator.PARAM_CONTAINER_TYPE, Segment.canonicalName,
-                LocalTokenAnnotator.TOKEN_MODEL_KEY, tokenResDesc))
-            add(createEngineDescription(LocalDSLAnnotator,
-                LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'extent/anatomical-site.groovy'))
-            add(createEngineDescription(LocalDSLAnnotator,
-                LocalDSLAnnotator.PARAM_BINDING_SCRIPT_FILE, 'extent/exam-extent-patterns.groovy',
-                LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'extent/exam-extent-matchers.groovy'))
-        }
-
-        AnalysisEngineDescription descr = builder.createAggregateDescription()
-        File descriptorLocation = new File('src/main/resources/descriptors/LocalExamExtentPipeline.xml')
-        descr.toXML(new PrintWriter(descriptorLocation))
-
-        AnalysisEngine engine = builder.createAggregate()
-
-        return engine
-    }
-
     static AnalysisEngine buildPolypHistologyPipeline() {
         ExternalResourceDescription tokenResDesc = ExternalResourceFactory.createExternalResourceDescription(
                 opennlp.uima.tokenize.TokenizerModelResourceImpl.class, "file:clinicalnlp/models/en-token.bin")
@@ -63,16 +33,6 @@ class LocalColonoscopyPipeline {
                     LocalSentenceDetector.SENT_MODEL_KEY, sentResDesc,
                     LocalSentenceDetector.PARAM_SPLIT_PATTERN, '[\n\r]{2,}'
             ))
-//            add(createEngineDescription(
-//                    LocalTokenAnnotator,
-//                    LocalTokenAnnotator.PARAM_CONTAINER_TYPE, Sentence.canonicalName,
-//                    LocalTokenAnnotator.TOKEN_MODEL_KEY, tokenResDesc))
-//            add(createEngineDescription(
-//                opennlp.uima.postag.POSTagger,
-//                UimaUtil.MODEL_PARAMETER, posResDesc,
-//                "opennlp.uima.SentenceType", Sentence.canonicalName,
-//                "opennlp.uima.TokenType", Token.canonicalName,
-//                "opennlp.uima.POSFeature", "pos"))
             add(createEngineDescription(LocalDSLAnnotator,
                     LocalDSLAnnotator.PARAM_SCRIPT_FILE, 'histology/anatomical-site.groovy'))
             add(createEngineDescription(LocalDSLAnnotator,

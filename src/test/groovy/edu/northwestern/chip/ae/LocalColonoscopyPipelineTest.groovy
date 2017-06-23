@@ -1,5 +1,6 @@
 package edu.northwestern.chip.ae
 
+import clinicalnlp.dsl.DSL
 import clinicalnlp.listener.BratAnnotationFileConsumer
 import clinicalnlp.listener.FileSystemXMIConsumer
 import clinicalnlp.reader.FileSystemCollectionReader
@@ -46,21 +47,15 @@ class LocalColonoscopyPipelineTest {
     }
 
     static void main(String[] args) {
-        Class.forName('clinicalnlp.dsl.UIMA_DSL')
+        Class.forName(DSL.canonicalName)
         BasicConfigurator.configure()
         log.level = Level.INFO
 
-//        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes'
-//        String outputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/proc-notes/xmi'
-//        AnalysisEngine pipeline = LocalColonoscopyPipeline.buildExamExtentPipeline()
 
         AnalysisEngine pipeline = LocalColonoscopyPipeline.buildPolypHistologyPipeline()
-//        String inputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes'
-//        String xmiOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/xmi'
-//        String bratOutputDir = '/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/brat'
-        String inputDir = 'C:/Users/wkt406/Data/path-notes/input'
-        String xmiOutputDir = 'C:/Users/wkt406/Data/path-notes/xmi'
-        String bratOutputDir = 'C:/Users/wkt406/Data/path-notes/brat'
+        String inputDir = '/Users/willthompson/Data/northwestern/colon-path/input'
+        String xmiOutputDir = '/Users/willthompson/Data/northwestern/colon-path/xmi'
+        String bratOutputDir = '/Users/willthompson/Data/northwestern/colon-path/brat'
         LocalColonoscopyPipelineTest.testPipeline(pipeline, inputDir, xmiOutputDir, bratOutputDir)
     }
 }

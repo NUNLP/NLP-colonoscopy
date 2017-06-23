@@ -1,15 +1,24 @@
+import clinicalnlp.types.Segment
+import edu.northwestern.chip.domain.Concept
 import edu.northwestern.chip.types.AnatomicalSite
 import edu.northwestern.chip.types.HistologyFinding
-import gov.va.vinci.leo.sentence.types.Sentence
-import static clinicalnlp.dsl.UIMA_DSL.*
 
-jcas.select(type:Sentence).each { Sentence sent ->
-    Collection<AnatomicalSite> sites = jcas.select(type:AnatomicalSite, filter:coveredBy(sent))
-    Collection<HistologyFinding> findings = jcas.select(type:HistologyFinding, filter:coveredBy(sent))
+import static clinicalnlp.dsl.DSL.getCoveredBy
+
+jcas.select(type:Segment).each { Segment segment ->
+    Collection<AnatomicalSite> sites = jcas.select(type:AnatomicalSite, filter:coveredBy(segment))
+    Collection<HistologyFinding> findings = jcas.select(type:HistologyFinding, filter:coveredBy(segment))
+
+    AnatomicalSite site = null
     if (sites.size() > 0) {
-        AnatomicalSite site = sites[0]
-        findings.each { HistologyFinding finding ->
-            finding.site = site
-        }
+        site = sites[0]
+    }
+    else {
+        site = jcas.create(type:AnatomicalSite, begin:segment.begin, end:segment.end)
+        site.code = Concept.COLON.code
+    }
+
+    findings.each { HistologyFinding finding ->
+        finding.site = site
     }
 }

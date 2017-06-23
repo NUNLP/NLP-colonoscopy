@@ -41,6 +41,7 @@ class PolypHistologyApp {
             jcas.select(type:HistologyFinding).each { HistologyFinding hf ->
                 JsonObject jobject = new JsonObject()
                 jobject.addProperty('code', hf.getCode())
+                jobject.addProperty('site', hf.getSite().getCode())
                 retVals.add(jobject.toString())
             }
         } catch (AnalysisEngineProcessException e) {
@@ -50,10 +51,11 @@ class PolypHistologyApp {
         return retVals.toArray(new String[retVals.size()])
     }
 
-
     static void main(args) {
-        String text = new File('/Users/willthompson/Box Sync (u6003082@utah.edu)/Utah data/Utah-random-sample/path-notes/591672070.txt').text
-        PolypHistologyApp.processText(text).each { println it }
+        new File("/Users/willthompson/Data/northwestern/colon-path/input").eachFileMatch(~/.*.txt/) { file ->
+            String text = file.text
+            PolypHistologyApp.processText(text).each { println it }
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-import clinicalnlp.dsl.UIMA_DSL
+import clinicalnlp.dsl.DSL
 import clinicalnlp.types.Segment
 import edu.northwestern.chip.types.HistologyFinding
 
@@ -25,7 +25,7 @@ findingPatterns = [
     (~/(?i)(?s)CARCINOMA/):[group:0] << ADENOCARCINOMA.map
 ]
 
-UIMA_DSL.createMentions(
+DSL.createMentions(
     patterns:findingPatterns,
     jcas:jcas,
     searchSet:jcas.select(type:Segment),

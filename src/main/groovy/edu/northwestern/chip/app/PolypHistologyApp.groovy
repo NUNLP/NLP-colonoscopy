@@ -1,6 +1,6 @@
 package edu.northwestern.chip.app
 
-import com.google.gson.JsonObject
+import com.opencsv.CSVWriter
 import edu.northwestern.chip.types.HistologyFinding
 import org.apache.uima.UIMAFramework
 import org.apache.uima.analysis_engine.AnalysisEngine
@@ -31,31 +31,37 @@ class PolypHistologyApp {
         assert engine != null
     }
 
-    synchronized static String[] processText(String text) {
-        List<String> retVals = new ArrayList<String>()
+    synchronized static Collection<Tuple2<String, String>> processText(String text) {
+        Collection<Tuple2<String, String>> retvals = new ArrayList<>()
 
         try {
             jcas.reset()
             jcas.setDocumentText(text)
             engine.process(jcas)
             jcas.select(type:HistologyFinding).each { HistologyFinding hf ->
-                JsonObject jobject = new JsonObject()
-                jobject.addProperty('code', hf.getCode())
-                jobject.addProperty('site', hf.getSite().getCode())
-                retVals.add(jobject.toString())
+                retvals << new Tuple2<>(hf.code, hf.site.code)
+//                jobject.addProperty('code', hf.getCode())
+//                jobject.addProperty('site', hf.getSite().getCode())
+//                retVals.add(jobject.toString())
             }
         } catch (AnalysisEngineProcessException e) {
             e.printStackTrace()
         }
 
-        return retVals.toArray(new String[retVals.size()])
+        return retvals
     }
 
     static void main(args) {
-        new File("/Users/willthompson/Data/northwestern/colon-path/input").eachFileMatch(~/.*.txt/) { file ->
+        Writer writer = new FileWriter(args[1])
+        def w = new CSVWriter(writer)
+        w.writeNext((String[]) ['sourceFile', 'histCode', 'siteCode'])
+        new File(args[0]).eachFileMatch(~/.*.txt/) { file ->
             String text = file.text
-            PolypHistologyApp.processText(text).each { println it }
+            PolypHistologyApp.processText(text).each { Tuple2<String, String> result ->
+                w.writeNext((String[]) [file.name.substring(0, file.name.length()-4), result[0], result[1]])
+            }
         }
+        w.close()
     }
 }
 

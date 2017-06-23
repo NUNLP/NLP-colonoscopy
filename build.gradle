@@ -13,6 +13,7 @@ repositories {
 dependencies {
     compile fileTree(dir: 'lib', include: '*.jar')
     compile 'org.apache.poi:poi:3.16'
+    compile 'com.opencsv:opencsv:3.9'
     compile 'clinicalnlp:library-types:1.1'
     compile 'clinicalnlp:component-sentence-detector:1.1'
     compile 'clinicalnlp:component-groovy-dsl:1.1'

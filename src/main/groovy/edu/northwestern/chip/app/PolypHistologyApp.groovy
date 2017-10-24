@@ -51,11 +51,11 @@ class PolypHistologyApp {
     static void main(args) {
         Writer writer = new FileWriter(args[1])
         def w = new CSVWriter(writer)
-        w.writeNext((String[]) ['sourceFile', 'histCode', 'siteCode'])
+        w.writeNext((String[]) ['cerner_encntr_id', 'finding'])
         new File(args[0]).eachFileMatch(~/.*.txt/) { file ->
             String text = file.text
             PolypHistologyApp.processText(text).each { Tuple2<String, String> result ->
-                w.writeNext((String[]) [file.name.substring(0, file.name.length()-4), result[0], result[1]])
+                w.writeNext((String[]) [file.name.substring(0, file.name.length()-4), "${result[0]}_${result[1]}"])
             }
         }
         w.close()

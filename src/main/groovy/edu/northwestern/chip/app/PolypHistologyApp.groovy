@@ -40,9 +40,6 @@ class PolypHistologyApp {
             engine.process(jcas)
             jcas.select(type:HistologyFinding).each { HistologyFinding hf ->
                 retvals << new Tuple2<>(hf.code, hf.site.code)
-//                jobject.addProperty('code', hf.getCode())
-//                jobject.addProperty('site', hf.getSite().getCode())
-//                retVals.add(jobject.toString())
             }
         } catch (AnalysisEngineProcessException e) {
             e.printStackTrace()

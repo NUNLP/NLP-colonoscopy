@@ -8,6 +8,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url 'http://decipher.chpc.utah.edu/nexus/content/groups/public'
+    }
 }
 
 dependencies {
